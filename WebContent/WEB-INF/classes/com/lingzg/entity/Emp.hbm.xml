@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.lingzg.entity.Emp" table="t_emp">
+		<id name="empno" column="empno" type="integer">
+			<generator class="identity"></generator>
+		</id>
+		<property name="ename" column="ename" type="string"/>
+		<property name="job" column="job" type="string"/>
+		<property name="mgr" column="mgr" type="integer"/>
+		<property name="hiredate" column="hiredate" type="date"/>
+		<property name="sal" column="sal" type="double"/>
+		<property name="comm" column="comm" type="double"/>
+		<property name="deptno" column="deptno" type="integer"/>
+	</class>
+</hibernate-mapping>

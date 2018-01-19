@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.lingzg.entity.Dept" table="t_dept">
+		<id name="deptno" column="deptno" type="integer">
+			<generator class="identity"></generator>
+		</id>
+		<property name="dname" column="dname" type="string"/>
+		<property name="loc" column="loc" type="string"/>
+	</class>
+</hibernate-mapping>
