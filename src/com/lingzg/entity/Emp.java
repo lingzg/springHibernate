@@ -1,6 +1,6 @@
 package com.lingzg.entity;
 
-import java.sql.Date;
+import java.util.Date;
 
 import com.lingzg.base.BaseEntity;
 
