@@ -22,7 +22,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import com.lingzg.common.PageInfo;
 import com.lingzg.util.transformer.CamelResultTransformer;
 import com.lingzg.util.transformer.ClassResultTransformer;
-import com.lingzg.util.transformer.FirstLowerCaseResultTransformer;
+import com.lingzg.util.transformer.StartWithLowerCaseResultTransformer;
 import com.lingzg.util.transformer.MapResultTransformer;
 
 public abstract class HibernateBaseDao<E,PK extends Serializable> extends HibernateDaoSupport implements IBaseDao<E, PK>{
@@ -155,7 +155,7 @@ public abstract class HibernateBaseDao<E,PK extends Serializable> extends Hibern
 	
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> findMapListBySql3(String sql,Object... params){
-		return (List<Map<String, Object>>) findListBySql(sql,params,new FirstLowerCaseResultTransformer());
+		return (List<Map<String, Object>>) findListBySql(sql,params,new StartWithLowerCaseResultTransformer());
 	}
 	
 	public void findPageByHql(PageInfo page,String hql,Object... params){
@@ -207,7 +207,7 @@ public abstract class HibernateBaseDao<E,PK extends Serializable> extends Hibern
 	}
 	
 	public void findPageBySql3(PageInfo page, String sql, Object... params){
-		findPageBySql(page, sql, params, new FirstLowerCaseResultTransformer());
+		findPageBySql(page, sql, params, new StartWithLowerCaseResultTransformer());
 	}
 	
 	public void findPageByCriteria(PageInfo page, DetachedCriteria dc){

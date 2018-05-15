@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import com.lingzg.util.DateUtil;
@@ -285,13 +286,12 @@ public class ParamsTable implements Serializable {
 	 *            The http request.
 	 * @return The paramters tables.
 	 */
-	@SuppressWarnings( { "deprecation" })
 	public static ParamsTable convertHTTP(HttpServletRequest request) {
 		ParamsTable params = new ParamsTable();
-		request.getSession().getServletContext();
+		ServletContext ctx = request.getSession().getServletContext();
 		params.siteHttp = request.getServerName();
 		params.contextPath = request.getContextPath();
-		params.realPath = request.getRealPath("/");
+		params.realPath = ctx.getRealPath("/");
 		params.sessionid = request.getSession().getId();
 		Enumeration<String> en = request.getParameterNames();
 		if (en != null) {

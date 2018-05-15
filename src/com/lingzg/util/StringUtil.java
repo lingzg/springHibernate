@@ -1168,6 +1168,23 @@ public class StringUtil {
     	return toCamelCase(str, "_");
     }
 
+    public static String toStartWithLowerCase(String str){
+    	if(str == null){
+    		return str;
+    	}
+    	int len = str.length();
+		int index=0;
+		while(index<len&&Character.isUpperCase(str.charAt(index))){
+			String newstr = str.substring(0,index)+Character.toLowerCase(str.charAt(index));
+			if(index+1<len){
+				newstr += str.substring(index+1);
+			}
+			str = newstr;
+			index++;
+		}
+    	return str;
+    }
+    
 	public static String trim(String name) {
 		if (null!=name){
 			return name.trim();
